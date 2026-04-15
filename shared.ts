@@ -714,7 +714,7 @@ export class MemePluginRuntime {
         keyword: detail.keyword,
         key: detail.key,
         shouldNotice: this.filterConfig.replyOnBlocked,
-        noticeInstruction: `用户触发了黑名单表情关键词 "${detail.keyword}"。请自然拒绝本次请求，简短说明该关键词当前不可用，并引导用户换一个表情关键词。`,
+        noticeInstruction: `用户触发了黑名单表情关键词 "${detail.keyword}"。请自然拒绝本次请求，简短说明该关键词当前不可用。`,
       };
     }
 
@@ -728,8 +728,8 @@ export class MemePluginRuntime {
         message: `表情 ${detail.keyword} 不接受文字参数`,
         keyword: detail.keyword,
         key: detail.key,
-        shouldNotice: true,
-        noticeInstruction: `用户要生成表情 "${detail.keyword}"，但这个表情不支持文字参数。请自然提醒用户直接提供图片或改用支持文本的表情。`,
+        shouldNotice: false,
+        noticeInstruction: `用户要生成表情 "${detail.keyword}"，但这个表情不支持文字参数。请提醒用户直接提供图片或改用支持文本的表情。`,
       };
     }
 
@@ -766,7 +766,7 @@ export class MemePluginRuntime {
         keyword: detail.keyword,
         key: detail.key,
         shouldNotice: true,
-        noticeInstruction: `用户要生成表情 "${detail.keyword}"，但图片参数不足。请自然提醒至少需要 ${params.min_images || 0} 张图片，并提示可提供 QQ 头像或包含图片的 messageId。`,
+        noticeInstruction: `用户要生成表情 "${detail.keyword}"，但图片参数不足。请自然提醒至少需要 ${params.min_images || 0} 张图片`,
       };
     }
 
